@@ -58,7 +58,7 @@ public class Song : ScriptableObject </token>
   </Song.enabled>
   <MusicController>
     <signature>MusicController</signature>
-    <childcount>9</childcount>
+    <childcount>10</childcount>
     <type>Class</type>
     <name>MusicController</name>
     <token>[RequireComponent(typeof(AudioSource))]
@@ -112,6 +112,25 @@ public class MusicController : MonoBehaviour </token>
       <summary>All songs marked as enabled in the Resources/Music folder at runtime</summary>
     </comments>
   </MusicController.activeSongs>
+  <MusicController.audioMixerGroup>
+    <signature>MusicController.audioMixerGroup</signature>
+    <childcount>0</childcount>
+    <type>Field</type>
+    <name>audioMixerGroup</name>
+    <token>public AudioMixerGroup audioMixerGroup </token>
+    <scope>MusicController</scope>
+    <comments>
+      <summary>The AudioMixerGroup that this controller uses to route clip output.</summary>
+    </comments>
+  </MusicController.audioMixerGroup>
+  <MusicController.Awake_x0028__x0029_>
+    <signature>MusicController.Awake()</signature>
+    <childcount>0</childcount>
+    <type>Method</type>
+    <name>Awake</name>
+    <token>private void Awake()</token>
+    <scope>MusicController</scope>
+  </MusicController.Awake_x0028__x0029_>
   <MusicController.LoadAudioClips_x0028__x0029_>
     <signature>MusicController.LoadAudioClips()</signature>
     <childcount>0</childcount>
@@ -134,4 +153,63 @@ public class MusicController : MonoBehaviour </token>
       <summary>Select a song from the activeSongs list and play it, recursively invokes to start a new song when clip finishes + delayBetweenSongs value</summary>
     </comments>
   </MusicController.PlayRandomMusicAudioClip_x0028__x0029_>
+  <SetVolume>
+    <signature>SetVolume</signature>
+    <childcount>6</childcount>
+    <type>Class</type>
+    <name>SetVolume</name>
+    <token>[RequireComponent(typeof(Slider))]
+public class SetVolume : MonoBehaviour </token>
+    <scope></scope>
+    <comments>
+      <summary>Sets the volume of AudioMixerGroup from slider range 0.0001 - 1.  Put class on slider.</summary>
+    </comments>
+  </SetVolume>
+  <SetVolume.audioMixerGroup>
+    <signature>SetVolume.audioMixerGroup</signature>
+    <childcount>0</childcount>
+    <type>Field</type>
+    <name>audioMixerGroup</name>
+    <token>AudioMixerGroup audioMixerGroup </token>
+    <scope>SetVolume</scope>
+  </SetVolume.audioMixerGroup>
+  <SetVolume.audioControllerName>
+    <signature>SetVolume.audioControllerName</signature>
+    <childcount>0</childcount>
+    <type>Field</type>
+    <name>audioControllerName</name>
+    <token>[Tooltip("This is the name of the controller that will be used to get the proper audio mixer group.  The controller should be a child of the 'Controllers' game object in the scene")]
+public string audioControllerName </token>
+    <scope>SetVolume</scope>
+  </SetVolume.audioControllerName>
+  <SetVolume.SetLevel_x0028_float_x0029_>
+    <signature>SetVolume.SetLevel(float)</signature>
+    <childcount>0</childcount>
+    <type>Method</type>
+    <name>SetLevel</name>
+    <token>public void SetLevel(float sliderValue)</token>
+    <scope>SetVolume</scope>
+    <comments>
+      <summary>Sets the volume level in decibels (-80 - 0) on the slider</summary>
+      <param-sliderValue>value from slider</param-sliderValue>
+    </comments>
+    <params>
+      <sliderValue>float</sliderValue>
+    </params>
+  </SetVolume.SetLevel_x0028_float_x0029_>
+  <SetVolume.SaveLevel_x0028_float_x0029_>
+    <signature>SetVolume.SaveLevel(float)</signature>
+    <childcount>0</childcount>
+    <type>Method</type>
+    <name>SaveLevel</name>
+    <token>private void SaveLevel(float sliderValue)</token>
+    <scope>SetVolume</scope>
+    <comments>
+      <summary>Save the level to PlayerPrefs</summary>
+      <param-sliderValue>value of the slider</param-sliderValue>
+    </comments>
+    <params>
+      <sliderValue>float</sliderValue>
+    </params>
+  </SetVolume.SaveLevel_x0028_float_x0029_>
 </members>
