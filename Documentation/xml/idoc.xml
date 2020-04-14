@@ -58,7 +58,7 @@ public class Song : ScriptableObject </token>
   </Song.enabled>
   <MusicController>
     <signature>MusicController</signature>
-    <childcount>4</childcount>
+    <childcount>9</childcount>
     <type>Class</type>
     <name>MusicController</name>
     <token>[RequireComponent(typeof(AudioSource))]
@@ -68,6 +68,28 @@ public class MusicController : MonoBehaviour </token>
       <summary>Controls music playback</summary>
     </comments>
   </MusicController>
+  <MusicController.currentSong>
+    <signature>MusicController.currentSong</signature>
+    <childcount>0</childcount>
+    <type>Field</type>
+    <name>currentSong</name>
+    <token>public Song currentSong </token>
+    <scope>MusicController</scope>
+    <comments>
+      <summary>Song scriptable object of the currently playing audio clip</summary>
+    </comments>
+  </MusicController.currentSong>
+  <MusicController.delayBetweenSongs>
+    <signature>MusicController.delayBetweenSongs</signature>
+    <childcount>0</childcount>
+    <type>Field</type>
+    <name>delayBetweenSongs</name>
+    <token>public float delayBetweenSongs </token>
+    <scope>MusicController</scope>
+    <comments>
+      <summary>Amount of time to wait between end of currentSong and start of next song</summary>
+    </comments>
+  </MusicController.delayBetweenSongs>
   <MusicController.allSongs>
     <signature>MusicController.allSongs</signature>
     <childcount>0</childcount>
@@ -101,4 +123,15 @@ public class MusicController : MonoBehaviour </token>
       <summary>Loads the Song scriptable objects present in the Resources/Music folder at runtime</summary>
     </comments>
   </MusicController.LoadAudioClips_x0028__x0029_>
+  <MusicController.PlayRandomMusicAudioClip_x0028__x0029_>
+    <signature>MusicController.PlayRandomMusicAudioClip()</signature>
+    <childcount>0</childcount>
+    <type>Method</type>
+    <name>PlayRandomMusicAudioClip</name>
+    <token>private void PlayRandomMusicAudioClip()</token>
+    <scope>MusicController</scope>
+    <comments>
+      <summary>Select a song from the activeSongs list and play it, recursively invokes to start a new song when clip finishes + delayBetweenSongs value</summary>
+    </comments>
+  </MusicController.PlayRandomMusicAudioClip_x0028__x0029_>
 </members>
